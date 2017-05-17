@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body >
+<canvas id="canvas">
+</canvas>
+
+<script>
+(function(){
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        
+
+        // resize the canvas to fill browser window dynamically
+        window.addEventListener('resize', resizeCanvas, false);
+        
+        function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                
+                /**
+                 * Your drawings need to be inside this function otherwise they will be reset when 
+                 * you resize the browser window and the canvas goes will be cleared.
+                 */
+                drawStuff(); 
+                console.log("resized");
+        }
+       
+        resizeCanvas();
+        
+       function drawImg(){
+        var image = new Image();
+        image.src = "http://i.imgur.com/YVpzfBG.jpg";
+        
+            }
+         window.addEventListener("load", drawImg, false);
+          
+           
+            function drawStuff() {
+             var w = canvas.width;
+             var h = canvas.height;
+                context.beginPath();
+                context.fillStyle="#ffcd00";
+                context.fillRect(0,0, w, h);
+                context.closePath();
+              
+              
+                }  
+        
+          
+           
+       
+        })();
+</script>
+<style>
+* { margin:0; padding:0; } /* to remove the top and left whitespace */
+
+html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
+
+canvas { display:block; } /* To remove the scrollbars */
+
+
+/* to show the canvas bounds */
+
+
+
+
+
+
+</style>
+
+
+</body>
+</html>
